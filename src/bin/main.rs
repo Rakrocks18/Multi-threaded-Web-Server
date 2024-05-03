@@ -11,12 +11,12 @@ use std::time::Duration;
 fn main() {
     let listener = TcpListener::bind("127.0.0.1:8000").unwrap();
 
-    let pool = ThreadPool::new(4);
+    let pool = ThreadPool::new(8);
     
     let mut counter = 0;
     
     for stream in listener.incoming() {
-        if counter == 2 {
+        if counter == 6 {
             println!("Shutting down.");
             break;
         }
